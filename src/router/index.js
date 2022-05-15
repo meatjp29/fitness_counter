@@ -13,6 +13,11 @@ const routes = [
     component: () => import("../views/SitUp.vue")
   },
   {
+    path: "/history",
+    name: "History",
+    component: () => import("../views/History.vue")
+  },
+  {
     path: "/option",
     name: "Option",
     component: () => import("../views/Option.vue")

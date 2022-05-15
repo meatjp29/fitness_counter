@@ -10,7 +10,7 @@ header {
   font-family: "Roboto", sans-serif;
   position: sticky;
   top: 0;
-  color: var(--color-white);
+  color: var(--color-dark-01);
   text-align: center;
   h1 {
     font-size: 1rem;

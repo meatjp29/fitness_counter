@@ -1,19 +1,21 @@
 <template>
   <div class="content">
-    <div class="time">{{ time }}</div>
-    <div class="count-view">
-      <div class="count">
-        {{ count }}
+    <div class="first">
+      <div class="time">{{ time }}</div>
+      <div class="count-view">
+        <div class="count">
+          {{ count }}
+        </div>
+        <div class="unit">回</div>
       </div>
-      <div class="unit">回</div>
-    </div>
-    <div class="tune">
-      <button class="minus" @click="countDown">
-        <span class="material-symbols-outlined"> chevron_left </span>
-      </button>
-      <button class="plus" @click="countUp">
-        <span class="material-symbols-outlined"> chevron_right </span>
-      </button>
+      <div class="tune">
+        <button class="minus" @click="countDown">
+          <span class="material-symbols-outlined"> chevron_left </span>
+        </button>
+        <button class="plus" @click="countUp">
+          <span class="material-symbols-outlined"> chevron_right </span>
+        </button>
+      </div>
     </div>
     <button class="start" @click="start" v-if="isStart === false">
       スタート
@@ -26,13 +28,23 @@
 .content {
   max-inline-size: max-content;
   margin-inline: auto;
+  height: 70vh;
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  .first {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
 }
 
 .time {
   max-inline-size: max-content;
   margin-inline: auto;
   font-size: 2rem;
-  color: var(--color-white);
+  color: var(--color-dark-02);
 }
 
 .count-view {
@@ -46,12 +58,12 @@
   font-size: 5rem;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  color: var(--color-white);
+  color: var(--color-primary);
   line-height: 0.77;
 }
 
 .unit {
-  color: var(--color-white);
+  color: var(--color-black);
   opacity: 0.5;
   font-size: 0.8rem;
 }
@@ -67,23 +79,27 @@
   flex: 1;
   aspect-ratio: 1 / 1;
   text-align: center;
+  font-size: 2rem;
   background-color: var(--color-white);
-  color: var(--color-primary);
+  color: var(--color-dark-01);
   border-radius: 100vw;
+  border: 1px solid var(--color-dark-01);
 }
 
 .start,
 .stop {
-  margin-top: 1rem;
   padding: 2rem;
   font-size: 2rem;
   max-inline-size: max-content;
   margin-inline: auto;
   display: block;
+  border: 1px solid var(--color-dark-01);
 }
 </style>
 
 <script>
+import * as Tone from "tone";
+
 export default {
   data() {
     return {

@@ -25,11 +25,10 @@ body,
 html {
   margin: 0;
   padding: 0;
-  background-image: linear-gradient(var(--color-primary),var(--color-primary-l));
 }
 
-body{
-  min-height:100vh;
+body {
+  min-height: 100vh;
 }
 
 :root {
@@ -37,9 +36,12 @@ body{
   --color-primary: #e55;
   --color-primary-l: #ee5533;
   --color-secondary: #000;
-    --color-alto-03: rgba(255 255 255 / 0.03);
-  --color-alto-05: rgba(255 255 255 / 0.05);
-    --color-alto-08: rgba(255 255 255 / 0.08);
+  --color-dark-01: rgba(0 0 0 / 1);
+  --color-dark-02: rgba(0 0 0 / 0.8);
+  --color-border: var(--color-alto-05);
+  --color-alto-03: rgba(0 0 0 / 0.03);
+  --color-alto-05: rgba(0 0 0 / 0.05);
+  --color-alto-08: rgba(0 0 0 / 0.08);
 }
 
 .material-symbols-outlined {

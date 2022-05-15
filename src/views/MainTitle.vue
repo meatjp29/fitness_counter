@@ -65,7 +65,7 @@
   .sub-title {
     display: block;
     font-size: 1rem;
-    color: var(--color-white);
+    color: var(--color-primary);
     opacity: 0.7;
     letter-spacing: 0.1rem;
     text-transform: uppercase;

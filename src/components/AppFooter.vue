@@ -9,7 +9,9 @@
         </li>
         <li>
           <router-link to="/situp" active-class="active">
-            <span class="material-symbols-outlined"> home </span>
+            <span class="material-symbols-outlined">
+              settings_accessibility
+            </span>
           </router-link>
         </li>
         <li>
@@ -29,23 +31,24 @@
 
 <style lang="scss" scoped>
 footer {
+  border-top: 1px solid var(--color-border);
   position: fixed;
   bottom: 0;
-
   width: 100%;
 }
 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  background-color: var(--color-white);
+  border-radius: 100vw;
   a {
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-white);
+    color: var(--color-black);
     &.active {
-      background-color: var(--color-white);
       color: var(--color-primary);
     }
   }

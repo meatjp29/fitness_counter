@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "babel-loader": "8.2.5",
+    "tone": "14.8.40",
     "vue": "3.2.33",
     "vue-router": "4.0.15"
   },
@@ -26,20 +27,13 @@
     "env": {
       "node": true
     },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
+    "extends": ["plugin:vue/vue3-essential", "eslint:recommended"],
     "parserOptions": {
       "parser": "babel-eslint"
     },
     "rules": {}
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
+  "browserslist": ["> 1%", "last 2 versions", "not dead"],
   "keywords": [],
   "description": ""
 }
