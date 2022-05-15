@@ -2,9 +2,18 @@
   <div class="content">
     <div class="time">{{ time }}</div>
     <div class="count-view">
-      <button class="minus" @click="countDown">←</button>
-      <div class="count">{{ count }}<span class="unit">回</span></div>
-      <button class="plus" @click="countUp">→</button>
+      <div class="count">
+        {{ count }}
+      </div>
+      <div class="unit">回</div>
+    </div>
+    <div class="tune">
+      <button class="minus" @click="countDown">
+        <span class="material-symbols-outlined"> chevron_left </span>
+      </button>
+      <button class="plus" @click="countUp">
+        <span class="material-symbols-outlined"> chevron_right </span>
+      </button>
     </div>
     <button class="start" @click="start" v-if="isStart === false">
       スタート
@@ -17,43 +26,50 @@
 .content {
   max-inline-size: max-content;
   margin-inline: auto;
-  padding: 2rem;
 }
 
 .time {
   max-inline-size: max-content;
   margin-inline: auto;
   font-size: 2rem;
+  color: var(--color-white);
 }
 
 .count-view {
   display: flex;
+  align-items: flex-end;
+  justify-content: center;
   margin-top: 1rem;
-  .count {
-    aspect-ratio: 1 / 1;
-    gap: 2rem;
-    width: 200px;
-    text-align: center;
-    font-size: 8rem;
-    line-height: 1;
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    .unit {
-      font-size: 1rem;
-    }
-  }
 }
 
-button {
-  background-color: #fff;
-  border-radius: 3px;
-  border: 1px solid;
+.count {
+  font-size: 5rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 0.77;
+}
+
+.unit {
+  color: var(--color-white);
+  opacity: 0.5;
+  font-size: 0.8rem;
+}
+
+.tune {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .plus,
 .minus {
-  width: 80px;
+  flex: 1;
+  aspect-ratio: 1 / 1;
   text-align: center;
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border-radius: 100vw;
 }
 
 .start,

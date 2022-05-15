@@ -6,9 +6,12 @@
 
 <style lang="scss" scoped>
 header {
-  border-bottom: 1px solid #000;
   padding: 1rem;
   font-family: "Roboto", sans-serif;
+  position: sticky;
+  top: 0;
+  color: var(--color-white);
+  text-align: center;
   h1 {
     font-size: 1rem;
     line-height: 1;
