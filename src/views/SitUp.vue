@@ -100,6 +100,28 @@
 <script>
 import * as Tone from "tone";
 
+const synth = new Tone.Synth().toDestination();
+const now = Tone.now();
+
+let rotateDegrees;
+let leftToRight;
+let frontToBack;
+let count = 0;
+let flag = 0;
+
+if (window.DeviceOrientationEvent) {
+  window.addEventListener(
+    "deviceorientation",
+    function (event) {
+      rotateDegrees = event.alpha;
+      leftToRight = event.gamma;
+      frontToBack = event.beta;
+      countUp2(leftToRight);
+    },
+    true
+  );
+}
+
 export default {
   data() {
     return {
@@ -129,6 +151,8 @@ export default {
       this.isStart = true;
       this.startTime = Date.now();
       this.timeCountUp();
+
+      synth.triggerAttackRelease("C5", "2n");
     },
     stop() {
       this.isStart = false;
@@ -150,6 +174,26 @@ export default {
       this.timerId = setTimeout(() => {
         this.timeCountUp();
       }, 10);
+    },
+    countUp2(deg) {
+      const kakudo = Math.abs(deg);
+      console.log(kakudo);
+      console.log(`flag=${flag}`);
+      if (kakudo > 70 && flag === 1) {
+        flag = 0;
+        count = count + 1;
+        this.countUp();
+        synth.triggerAttackRelease("C4", "8n");
+        window.navigator.vibrate(100);
+
+        //10の倍数のとき特別処理
+        if (count % 10 === 0) {
+          window.navigator.vibrate([200, 0, 200]);
+        }
+      } else if (kakudo < 10 && flag === 0) {
+        console.log(`flag=${flag}`);
+        flag = 1;
+      }
     },
   },
 };
